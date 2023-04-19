@@ -240,6 +240,22 @@ class General(commands.Cog, name="general"):
                     )
                 await context.send(embed=embed)
 
+    @commands.hybrid_command(
+        name="bed",
+        description="Go to bed!",
+    )
+    # This will only allow non-blacklisted members to execute the command
+    @checks.not_blacklisted()
+    async def gotobed(self, context: Context):
+        """
+        This is a testing command that does nothing.
+
+        :param context: The application command context.
+        """
+        bitch_gif = r'C:\Users\Alexa\GitHub\gotobedbot\database\bed_bitch.gif'
+        with open(bitch_gif, 'rb') as f:
+            gif = discord.File(f)
+            await context.send(file=gif)
 
 async def setup(bot):
     await bot.add_cog(General(bot))
