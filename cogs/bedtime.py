@@ -26,7 +26,7 @@ class Bedtime(commands.Cog, name="bedtime"):
             return msg.author == context.author and msg.channel == context.channel
 
         try:
-            msg = await bot.wait_for('message', check=check, timeout=80)
+            msg = await self.bot.wait_for('message', check=check, timeout=80)
             time = msg.content
 
             db = self.bot.init_db()
